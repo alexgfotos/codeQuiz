@@ -1,23 +1,58 @@
 <!DOCTYPE html>
 <head>
     <title> Quiz! </title>
-
+    <!-- scaler link? -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Reset cdn -->
+    <link rel="stylesheet" href = "https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.css">
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- My CSS -->
     <link rel="stylesheet" href="style.css">
-    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato|Oswald|Oxanium|Roboto|Roboto+Condensed&display=swap" rel="stylesheet">
+    <!-- JQUERY Link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
    
 <body>
     <div class = "container">
-        <h2 id = "question">Blank Question</h2>
 
-        <section id = "answers">
-            <button>Blank answer that is as long as a sentence because of words</button>
-            <button>Blank answer that is as long as a sentence because of words</button>
-            <button>Blank answer that is as long as a sentence because of words</button>
-            <button>Blank answer that is as long as a sentence because of words</button>
+            <article id = "Ready">
+                <h2 id = "question">Ready for to quiz?</h2>
+
+            <section class = "column" id = "answers">
+                <button class = "row" id = "ready">I ready</button>
+                <button class = "row" id = "notReady">I not ready</button>
+                
+            </article>
+
+            </article>
+        
+            <article id = "Q1">
+            
+            <h2 id = "question">1. CSS is "____" of a website's anthropromorphic analogy?</h2>
+
+            <section class = "column" id = "answers1">
+                <button class = "row" id = "button1">(A) The Butt</button>
+                <button class = "row" id = "button2">(B) The Medulla Oblongata</button>
+                <button class = "row" id = "button3">(C) The Epidermis</button>
+                <button class = "row" id = "button4">(D) The Muscles</button>
+            </article>
+
         </section>
 
 
     </div>
+
+    <div id = "time">
+        <h3>Wut time</h3>
+    </div>
+
+    <div id = "highScores">
+        <h3>View High Scores</h3>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
 </body>
 

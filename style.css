@@ -1,14 +1,14 @@
 body {
  background-image: url("https://natpd.com/lynnedu/wp-content/uploads/2017/09/Exams-Stress.jpg");  
  margin: 0;
- min-height: 80vh;
+ min-height: 90vh;
  display: flex;
  justify-content: center;
  align-items: center;
- font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+ font-family: 'Roboto Condensed', sans-serif; 
 }
 
-div {
+.container {
     background-color: rgba(100, 100, 100, .7);
     display: flex;
     justify-content: center;
@@ -17,22 +17,51 @@ div {
     flex-direction: column;
     border: 4px solid white;
     border-radius: 2rem;
-    width: 70vh;
-}
-
-#question {
-    font-size: 50px;
-    color: white;
+    width: 90vh;
 }
 
 button {
     cursor: pointer;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Oswal', sans-serif;
     font-size: 20px;
-    height: 2rem;
+    height: 3rem;
     border-radius: 1rem;
+    margin: 4px;
 }
 
 button:hover {
     background-color: aquamarine;
+}
+
+#question {
+    margin-top: 0px;
+    font-size: 50px;
+    color: white;
+}
+
+#time {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: white;
+    background-color: rgba(100, 100, 100, .7);
+    padding: 13px;
+    margin: 5px;
+    height: 4rem;
+    vertical-align: 10%;
+    border: 3px solid white;
+    border-radius: 1rem;
+}
+
+#highScores {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: white;
+        padding: 2px;
+        margin-left: 2px;
+    }
+
+#Q1 {
+    /* display:none; */
 }
