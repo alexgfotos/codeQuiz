@@ -64,8 +64,18 @@ function display(){
     // render the curret answers
 }
 
-$(".answers").on("click", function(){
+function isCorrect(){
+    // will return boolean
     
+}
+
+function addScore
+
+    // if correct plus 1 and next ?
+    //  if wrong -time and next ?
+
+$(".answers").on("click", function(){
+
    
    
    
