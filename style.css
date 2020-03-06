@@ -33,7 +33,7 @@ button:hover {
     background-color: aquamarine;
 }
 
-#question {
+.question {
     margin-top: 0px;
     font-size: 50px;
     color: white;
