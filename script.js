@@ -65,16 +65,36 @@ function display(){
 }
 
 function isCorrect(){
-    // will return boolean
-    
+    var answer = 0;
+    $("#button1").on("click", function(){
+        answer = 0;
+        console.log(answer);
+    $("#button2").on("click", function(){
+        answer = 1;
+        console.log(answer);
+    $("#button3").on("click", function(){
+        answer = 2;
+        console.log(answer);
+    $("#button4").on("click", function(){
+        answer = 3;
+        console.log(answer);
+    })
+    })
+    })
+
+    })
+    return answer
 }
 
-function addScore
+isCorrect();
+// function addScore(){
+
+
 
     // if correct plus 1 and next ?
     //  if wrong -time and next ?
 
-$(".answers").on("click", function(){
+
 
    
    
@@ -83,7 +103,5 @@ $(".answers").on("click", function(){
     // if correct add one to score
 
     // next questioc
-    currentQuestion++;
-    display();
-
-})
+    // currentQuestion++;
+    // display()
