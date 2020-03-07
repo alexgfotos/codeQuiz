@@ -1,23 +1,13 @@
-// $( "#button1" ).click(function() {
-//     alert( "You did the click!" );
-//     $( "button" ).slideUp();
-//   });
+
+// Declare and assign variable used in functions later
+
+var quiz= $("#quiz")
 var time = 120;
-
-function timer(){
-    time--;
-    $("#time").text(time)
-    $("#time").attr("font-size", "20px")
-}
-
-$("#quiz").hide();
+var currentQuestion =0;
+var score =0;
 
 
-$("#notReady").click(function () {
-    alert("Coward");
-})
-
-
+// Creat an array of objects for question bank
 
 var questions = [
     {
@@ -51,6 +41,29 @@ var questions = [
         correctAnswer: "a"
     },
 ]
+
+
+function timer(){
+    time--;
+    $("#time").text(time)
+    $("#time").attr("font-size", "20px")
+}
+
+$(quiz).hide();
+
+$("#ready").click(function () {
+    $("#Ready").hide();
+    $("#quiz").show();
+    display();
+    setInterval(timer, 1000);
+    })
+
+$("#notReady").click(function () {
+    alert("Coward");    
+})
+
+
+
 function display(){
     for ( i = 0 ; i < questions.length ; i++){
         $(".question").text(questions[i].question);
@@ -64,68 +77,28 @@ function display(){
     // render the curret answers
 }
 
-var currentQuestion =0;
-var score =0;
 
-
-$("#ready").click(function () {
-    $("#Ready").slideUp();
-    $("#quiz").show();
-    display();
-    setInterval(timer, 1000);
-    })
-
-
-
-var answer = 0;
-
-$("#button1").on("click", function(){
-        answer = 0;
-        console.log(answer)});
-
-$("#button2").on("click", function(){
-        answer = 1;
-        console.log(answer)});
-
-$("#button3").on("click", function(){
-        answer = 2;
-        console.log(answer)});
-
-$("#button4").on("click", function(){
-        answer = 3
-        console.log(answer)});
-
-
-// function isCorrect(){
+function endQuiz(){
     
-// }
-
-
-
-if (answer == 2) {
-    display("YOU RIGHT");
-    score++;
-    console.log(score);
 }
 
 
 
-// function addScore(){
+
+// My quiz:
+
+// 1. Prompt user if they want to start the quiz   
+//     true= display 1st question and answers, begin timer
+//     false= "coward"
 
 
+// 2. When answer is selected:
+//     does user answer = correct answer?
+//      true= add 1 to score, next question
+//      false= subract 10s from time, next question
+//      repeat until all questions answered or time is up.
 
-    // if correct plus 1 and next ?
-    //  if wrong -time and next ?
-
-
-
-   
-   
-   
-    // check if answer right/wrong
-    // if correct add one to score
-
-    // next question
-    // currentQuestion++;
-    // display();
+// 3. End of quiz:
+//      Display final score and save to local storage
+//          display all scores in descending order on "high scores" link
     
