@@ -2,45 +2,67 @@
 //     alert( "You did the click!" );
 //     $( "button" ).slideUp();
 //   });
+var time = 120;
 
+function timer(){
+    time--;
+    $("#time").text(time)
+    $("#time").attr("font-size", "20px")
+}
 
-$("#Q1").hide();
+$("#quiz").hide();
 
 
 $("#notReady").click(function () {
-    alert("Your training is complete, YOU ARE READY");
+    alert("Coward");
 })
 
 
 
 var questions = [
     {
-        question: "CSS is ______ of a website's anthropromorphic analogy?",
-        answers: ["The Butt", "The Muscle", "The Epidermis", "The Medulla Oblongata"],
-        correct: 2
+        question: "1. CSS is ______ of a website's anthropromorphic analogy?",
+        answers: {
+          a: "The Butt",
+          b: "The Muscle",
+          c: "The Epidermis",
+          d: "The Medulla Oblongata"
+        },
+        correctAnswer: "c"
+      },
+    {
+        question: "2. JS is ______ of a website's anthropromorphic analogy?",
+        answers: {
+          a: "The Butt",
+          b: "The Muscle",
+          c: "The Epidermis",
+          d: "The Medulla Oblongata"
+        },
+        correctAnswer: "b"
     },
     {
-        question: "JS is ______ of a website's anthropromorphic analogy?",
-        answers: ["The Butt", "The Muscle", "The Epidermis", "The Medulla Oblongata"],
-        correct: 1
-    },
-    {
-        question: "The term boolean has two possible values called ____ & ____.",
-        answers: ["True & false.", "Big & Small", "Gif & Gif", "Butt & Other Butt"],
-        correct: 0
-    },
-    {
-        question: "JS is ______ of a website's anthropromorphic analogy?",
-        answers: ["The Butt", "The Muscle", "The Epidermis", "The Medulla Oblongata"],
-        correct: 1
-    },
-    {
-        question: "JS is ______ of a website's anthropromorphic analogy?",
-        answers: ["The Butt", "The Muscle", "The Epidermis", "The Medulla Oblongata"],
-        correct: 1
+        question: "3. The term boolean has two possible values called ____ & ____.",
+        answers: {
+          a: "True & false",
+          b: "Big & Small",
+          c: "Gif & Gif",
+          d: "Butt & Other Butt"
+        },
+        correctAnswer: "a"
     },
 ]
+function display(){
+    for ( i = 0 ; i < questions.length ; i++){
+        $(".question").text(questions[i].question);
+        $("#button1").text(questions[i].answers.a);
+        $("#button2").text(questions[i].answers.b);
+        $("#button3").text(questions[i].answers.c);
+        $("#button4").text(questions[i].answers.d);
 
+    }
+    // render the current question
+    // render the curret answers
+}
 
 var currentQuestion =0;
 var score =0;
@@ -48,45 +70,46 @@ var score =0;
 
 $("#ready").click(function () {
     $("#Ready").slideUp();
-    $("#Q1").show();
+    $("#quiz").show();
     display();
+    setInterval(timer, 1000);
     })
 
-function display(){
-    for ( i = 0 ; i < questions.length ; i++){
-        $(".question").text(questions[i].question);
-        $("#button1").text(questions[i].answers[0]);
-        $("#button2").text(questions[i].answers[1]);
-        $("#button3").text(questions[i].answers[2]);
-        $("#button4").text(questions[i].answers[3]);
-    }
-    // render the current question
-    // render the curret answers
-}
 
-function isCorrect(){
-    var answer = 0;
-    $("#button1").on("click", function(){
+
+var answer = 0;
+
+$("#button1").on("click", function(){
         answer = 0;
-        console.log(answer);
-    $("#button2").on("click", function(){
-        answer = 1;
-        console.log(answer);
-    $("#button3").on("click", function(){
-        answer = 2;
-        console.log(answer);
-    $("#button4").on("click", function(){
-        answer = 3;
-        console.log(answer);
-    })
-    })
-    })
+        console.log(answer)});
 
-    })
-    return answer
+$("#button2").on("click", function(){
+        answer = 1;
+        console.log(answer)});
+
+$("#button3").on("click", function(){
+        answer = 2;
+        console.log(answer)});
+
+$("#button4").on("click", function(){
+        answer = 3
+        console.log(answer)});
+
+
+// function isCorrect(){
+    
+// }
+
+
+
+if (answer == 2) {
+    display("YOU RIGHT");
+    score++;
+    console.log(score);
 }
 
-isCorrect();
+
+
 // function addScore(){
 
 
@@ -102,6 +125,7 @@ isCorrect();
     // check if answer right/wrong
     // if correct add one to score
 
-    // next questioc
+    // next question
     // currentQuestion++;
-    // display()
+    // display();
+    
