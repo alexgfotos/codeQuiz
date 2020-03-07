@@ -42,18 +42,27 @@ var questions = [
     },
 ]
 
+// Timer function to subract 1 from time of 120 and display in #text element
 
 function timer(){
     time--;
     $("#time").text(time)
     $("#time").attr("font-size", "20px")
+    if(time < 1){
+        endQuiz();
+    }
 }
+
+// hide my quiz on launch
 
 $(quiz).hide();
 
+// event listeners for read and not ready buttons
+
 $("#ready").click(function () {
     $("#Ready").hide();
-    $("#quiz").show();
+    $(quiz).show();
+    currentQuestion = 0;
     display();
     setInterval(timer, 1000);
     })
@@ -62,21 +71,35 @@ $("#notReady").click(function () {
     alert("Coward");    
 })
 
+$(".answer").click(function(){
+// IS ANSWER CORRECT
 
+    var answer = $(this).attr("data-answer");
+    console.log(answer)
+    if(answer == questions[currentQuestion].correctAnswer){
+        score++
+    }
+    else {
+        time = time-10;
+    }
+    currentQuestion++;
+    if(currentQuestion == questions.length){
+        endQuiz();
+    }
+    else{
+        display();
+    }
+})
+// function to render question and answer
 
 function display(){
-    for ( i = 0 ; i < questions.length ; i++){
-        $(".question").text(questions[i].question);
-        $("#button1").text(questions[i].answers.a);
-        $("#button2").text(questions[i].answers.b);
-        $("#button3").text(questions[i].answers.c);
-        $("#button4").text(questions[i].answers.d);
-
-    }
-    // render the current question
-    // render the curret answers
+    
+        $(".question").text(questions[currentQuestion].question);
+        $("#a").text(questions[currentQuestion].answers.a);
+        $("#b").text(questions[currentQuestion].answers.b);
+        $("#c").text(questions[currentQuestion].answers.c);
+        $("#d").text(questions[currentQuestion].answers.d);
 }
-
 
 function endQuiz(){
     
@@ -86,10 +109,6 @@ function endQuiz(){
 
 
 // My quiz:
-
-// 1. Prompt user if they want to start the quiz   
-//     true= display 1st question and answers, begin timer
-//     false= "coward"
 
 
 // 2. When answer is selected:
