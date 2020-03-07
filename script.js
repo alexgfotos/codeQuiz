@@ -40,6 +40,16 @@ var questions = [
         },
         correctAnswer: "a"
     },
+    {
+        question: "4. Bootstrap is an example of an:",
+        answers: {
+          a: "IEI",
+          b: "OBI",
+          c: "URL",
+          d: "API"
+        },
+        correctAnswer: "d"
+    }
 ]
 
 // Timer function to subract 1 from time of 120 and display in #text element
@@ -56,6 +66,7 @@ function timer(){
 // hide my quiz on launch
 
 $(quiz).hide();
+$("#end").hide();
 
 // event listeners for read and not ready buttons
 
@@ -102,7 +113,10 @@ function display(){
 }
 
 function endQuiz(){
-    
+    $(quiz).hide();
+    $("#score").text("You scored " + score + "/5");
+    $("#end").show();
+    localStorage.setItem("scores", score)
 }
 
 
