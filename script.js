@@ -67,8 +67,13 @@ var questions = [
 
 // Timer function to subract 1 from time of 120 and display in #text element
 
-function timer(){
+function  timer(){
+    setInterval(function() {
     time--;
+    if (time <= 0) {
+        clearInterval(interval)
+    }
+    }, 1000);
     $("#time").text(time)
     $("#time").attr("font-size", "20px")
     if(time < 1){
@@ -76,6 +81,12 @@ function timer(){
         $("#time").hide();
     }
 }
+
+// function timer(){
+    
+//     interval;
+    
+// }
 
 // hide my quiz on launch
 function init(){
@@ -95,7 +106,7 @@ $("#ready").click(function () {
     $("#time").show();
     currentQuestion = 0;
     display();
-    setInterval(timer, 1000);
+    // setInterval(timer, 1000);
     })
     timer();
 
