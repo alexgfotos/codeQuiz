@@ -7,6 +7,7 @@ var currentQuestion =0;
 var score =0;
 var allScores = [];
 var nameValue = document.querySelector("#nameValue");
+var highScores = $("#scoreList");
 
 
 // Creat an array of objects for question bank
@@ -142,21 +143,21 @@ function endQuiz(){
 
 }
 
-function saveName(){
+function saveName() {
     localStorage.setItem("Score List" , JSON.stringify(allScores))
 }
 
 function renderScores(){
 
-    for (var i = 0; i <allScores.length; i++) {
-        var li = $("#scoreList").text(JSON.stringify(allScores));
-    }
+    // for (var i = 0; i <allScores.length; i++) {
+        highScores.text(JSON.stringify(allScores));
+    
 }
 
 $("#end").submit(function(){
     event.preventDefault();
     $("#end").hide();
-    var scoreName = {name: nameValue.value.trim(), points: score};
+    var scoreName = {"name": nameValue.value.trim(), "points": score};
     allScores.push(scoreName);
     saveName();
     $("#showScores").show(); 
@@ -169,6 +170,7 @@ $("#highScores").click(function(){
     init();
     $("#readySplash").hide();
     $("#showScores").show();
+    renderScores();
     // clearInterval(timer);
 })
 
