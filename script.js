@@ -88,7 +88,7 @@ $(".answer").click(function(){
     var answer = $(this).attr("data-answer");
     console.log(answer)
     if(answer == questions[currentQuestion].correctAnswer){
-        score++
+        score = score + 5
     }
     else {
         time = time-10;
@@ -114,10 +114,14 @@ function display(){
 
 function endQuiz(){
     $(quiz).hide();
-    $("#score").text("You scored " + score + "/5");
+    $("#score").text("You scored " + score + "/25");
     $("#end").show();
-    localStorage.setItem("scores", score)
+    localStorage.setItem("scores", score);
 }
+
+$("#submit").click(function(){
+    $("#scores").append(localStorage.getItem("scores"));
+})
 
 
 
