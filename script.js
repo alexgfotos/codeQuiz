@@ -12,46 +12,46 @@ var nameValue = document.querySelector("#nameValue");
 // Creat an array of objects for question bank
 
 var questions = [
-    // {
-    //     question: "1. CSS is ______ of a website's anthropromorphic analogy?",
-    //     answers: {
-    //       a: "The Butt",
-    //       b: "The Muscle",
-    //       c: "The Epidermis",
-    //       d: "The Medulla Oblongata"
-    //     },
-    //     correctAnswer: "c"
-    //   },
-    // {
-    //     question: "2. JS is ______ of a website's anthropromorphic analogy?",
-    //     answers: {
-    //       a: "The Butt",
-    //       b: "The Muscle",
-    //       c: "The Epidermis",
-    //       d: "The Medulla Oblongata"
-    //     },
-    //     correctAnswer: "b"
-    // },
-    // {
-    //     question: "3. The term boolean has two possible values called ____ & ____.",
-    //     answers: {
-    //       a: "True & false",
-    //       b: "Big & Small",
-    //       c: "Gif & Gif",
-    //       d: "Butt & Other Butt"
-    //     },
-    //     correctAnswer: "a"
-    // },
-    // {
-    //     question: "4. Bootstrap is an example of an:",
-    //     answers: {
-    //       a: "IEI",
-    //       b: "OBI",
-    //       c: "URL",
-    //       d: "API"
-    //     },
-    //     correctAnswer: "d"
-    // },
+    {
+        question: "1. CSS is ______ of a website's anthropromorphic analogy?",
+        answers: {
+          a: "The Butt",
+          b: "The Muscle",
+          c: "The Epidermis",
+          d: "The Medulla Oblongata"
+        },
+        correctAnswer: "c"
+      },
+    {
+        question: "2. JS is ______ of a website's anthropromorphic analogy?",
+        answers: {
+          a: "The Butt",
+          b: "The Muscle",
+          c: "The Epidermis",
+          d: "The Medulla Oblongata"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "3. The term boolean has two possible values called ____ & ____.",
+        answers: {
+          a: "True & false",
+          b: "Big & Small",
+          c: "Gif & Gif",
+          d: "Butt & Other Butt"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "4. Bootstrap is an example of an:",
+        answers: {
+          a: "IEI",
+          b: "OBI",
+          c: "URL",
+          d: "API"
+        },
+        correctAnswer: "d"
+    },
     {
         question: "5. DOM is an abbreviation for:",
         answers: {
