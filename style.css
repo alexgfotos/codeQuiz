@@ -53,15 +53,21 @@ h2 {
     border-radius: 1rem;
 }
 
-#highScores {
-        position: absolute;
-        top: 0;
-        left: 0;
-        color: white;
-        padding: 2px;
-        margin-left: 2px;
-    }
 
-#Q1 {
-    /* display:none; */
+#highScores {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 2px;
+    margin-left: 2px;
+}
+
+#highScores:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+h3 {
+    color: white;   
 }

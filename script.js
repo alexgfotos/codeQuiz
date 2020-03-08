@@ -5,6 +5,8 @@ var quiz= $("#quiz")
 var time = 120;
 var currentQuestion =0;
 var score =0;
+var allScores = [];
+var scoreName = "";
 
 
 // Creat an array of objects for question bank
@@ -60,23 +62,30 @@ function timer(){
     $("#time").attr("font-size", "20px")
     if(time < 1){
         endQuiz();
+        $("#time").hide();
     }
 }
 
 // hide my quiz on launch
-
+function init(){
 $(quiz).hide();
 $("#end").hide();
+$("#showScores").hide();
+$("#time").hide();
+}
 
+init()
 // event listeners for read and not ready buttons
 
 $("#ready").click(function () {
-    $("#Ready").hide();
+    $("#readySplash").hide();
     $(quiz).show();
+    $("#time").show();
     currentQuestion = 0;
     display();
     setInterval(timer, 1000);
     })
+    timer();
 
 $("#notReady").click(function () {
     alert("Coward");    
@@ -116,14 +125,28 @@ function endQuiz(){
     $(quiz).hide();
     $("#score").text("You scored " + score + "/25");
     $("#end").show();
-    localStorage.setItem("scores", score);
+    
+
 }
 
 $("#submit").click(function(){
-    $("#scores").append(localStorage.getItem("scores"));
+    $("#end").hide();
+    scoreName = $("#nameValue").value;
+    $("#showScores").show(); 
+    // allScores.push(scoreName);
+    console.log(scoreName);
 })
 
+$("#highScores").click(function(){
+    init();
+    $("#readySplash").hide();
+    $("#showScores").show();
+    clearInterval(timer);
+})
 
+$("#back").click(function(){
+    location.reload();
+})
 
 
 // My quiz:

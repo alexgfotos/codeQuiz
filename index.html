@@ -19,7 +19,7 @@
     <div class = "container">
 
         <!-- Ready prompt -->
-            <article id = "Ready">
+            <article id = "readySplash">
                 <h2 class = "question">Ready for to quiz?</h2>
 
             <section class = "column" id = "answers">
@@ -48,9 +48,19 @@
 
         <article id= "end">
             <h2 id ="score"></h2>
-            <input placeholder="name" id = "name"></input>
+
+            <input placeholder="name" id = "nameValue" ></input>
             <button id = "submit">Submit my score!</button> 
+           
         </article>
+
+        <div id = "showScores">
+            <ol id = "scoreList">
+                <h2>High Scores</h2>
+                <h3>SCORES!</h3>
+            </ol>
+            <button id ="back">Back</button>
+        </div>
 
     </div>
 
@@ -58,9 +68,14 @@
         <h1></h1>
     </div>
 
+    <!-- link to showHighscores -->
     <div id = "highScores">
         <h3>View High Scores</h3>
+
     </div>
+
+    
+
 
     <script type="text/javascript" src="script.js"></script>
 </body>
