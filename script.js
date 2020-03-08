@@ -6,52 +6,52 @@ var time = 120;
 var currentQuestion =0;
 var score =0;
 var allScores = [];
-var scoreName = "";
+var nameValue = document.querySelector("#nameValue");
 
 
 // Creat an array of objects for question bank
 
 var questions = [
-    {
-        question: "1. CSS is ______ of a website's anthropromorphic analogy?",
-        answers: {
-          a: "The Butt",
-          b: "The Muscle",
-          c: "The Epidermis",
-          d: "The Medulla Oblongata"
-        },
-        correctAnswer: "c"
-      },
-    {
-        question: "2. JS is ______ of a website's anthropromorphic analogy?",
-        answers: {
-          a: "The Butt",
-          b: "The Muscle",
-          c: "The Epidermis",
-          d: "The Medulla Oblongata"
-        },
-        correctAnswer: "b"
-    },
-    {
-        question: "3. The term boolean has two possible values called ____ & ____.",
-        answers: {
-          a: "True & false",
-          b: "Big & Small",
-          c: "Gif & Gif",
-          d: "Butt & Other Butt"
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "4. Bootstrap is an example of an:",
-        answers: {
-          a: "IEI",
-          b: "OBI",
-          c: "URL",
-          d: "API"
-        },
-        correctAnswer: "d"
-    },
+    // {
+    //     question: "1. CSS is ______ of a website's anthropromorphic analogy?",
+    //     answers: {
+    //       a: "The Butt",
+    //       b: "The Muscle",
+    //       c: "The Epidermis",
+    //       d: "The Medulla Oblongata"
+    //     },
+    //     correctAnswer: "c"
+    //   },
+    // {
+    //     question: "2. JS is ______ of a website's anthropromorphic analogy?",
+    //     answers: {
+    //       a: "The Butt",
+    //       b: "The Muscle",
+    //       c: "The Epidermis",
+    //       d: "The Medulla Oblongata"
+    //     },
+    //     correctAnswer: "b"
+    // },
+    // {
+    //     question: "3. The term boolean has two possible values called ____ & ____.",
+    //     answers: {
+    //       a: "True & false",
+    //       b: "Big & Small",
+    //       c: "Gif & Gif",
+    //       d: "Butt & Other Butt"
+    //     },
+    //     correctAnswer: "a"
+    // },
+    // {
+    //     question: "4. Bootstrap is an example of an:",
+    //     answers: {
+    //       a: "IEI",
+    //       b: "OBI",
+    //       c: "URL",
+    //       d: "API"
+    //     },
+    //     correctAnswer: "d"
+    // },
     {
         question: "5. DOM is an abbreviation for:",
         answers: {
@@ -86,6 +86,7 @@ $("#time").hide();
 
 init()
 // event listeners for read and not ready buttons
+
 
 $("#ready").click(function () {
     $("#readySplash").hide();
@@ -135,23 +136,40 @@ function endQuiz(){
     $(quiz).hide();
     $("#score").text("You scored " + score + "/25");
     $("#end").show();
-    
+    $("#time").hide();
+    time = 100000;
+    // stupid time set because I cannot get clearInterval() to work
 
 }
 
-$("#submit").click(function(){
+function saveName(){
+    localStorage.setItem("Score List" , JSON.stringify(allScores))
+}
+
+function renderScores(){
+
+    for (var i = 0; i <allScores.length; i++) {
+        var li = $("#scoreList").text(JSON.stringify(allScores));
+    }
+}
+
+$("#end").submit(function(){
+    event.preventDefault();
     $("#end").hide();
-    scoreName = $("#nameValue").value;
+    var scoreName = {name: nameValue.value.trim(), points: score};
+    allScores.push(scoreName);
+    saveName();
     $("#showScores").show(); 
-    // allScores.push(scoreName);
-    console.log(scoreName);
+    console.log(allScores);
+    renderScores();
 })
+
 
 $("#highScores").click(function(){
     init();
     $("#readySplash").hide();
     $("#showScores").show();
-    clearInterval(timer);
+    // clearInterval(timer);
 })
 
 $("#back").click(function(){
