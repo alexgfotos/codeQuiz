@@ -51,6 +51,16 @@ var questions = [
           d: "API"
         },
         correctAnswer: "d"
+    },
+    {
+        question: "5. DOM is an abbreviation for:",
+        answers: {
+          a: "Don't Open Mustard",
+          b: "Documents Optional, Man",
+          c: "Document Object Model",
+          d: "Dunk On Me"
+        },
+        correctAnswer: "c"
     }
 ]
 
