@@ -25,46 +25,46 @@ var questions = [
         },
         correctAnswer: "c"
       },
-    // {
-    //     question: "2. JS is ______ of a website's anthropromorphic analogy?",
-    //     answers: {
-    //       a: "The Butt",
-    //       b: "The Muscle",
-    //       c: "The Epidermis",
-    //       d: "The Medulla Oblongata"
-    //     },
-    //     correctAnswer: "b"
-    // },
-    // {
-    //     question: "3. The term boolean has two possible values called ____ & ____.",
-    //     answers: {
-    //       a: "True & false",
-    //       b: "Big & Small",
-    //       c: "Gif & Gif",
-    //       d: "Butt & Other Butt"
-    //     },
-    //     correctAnswer: "a"
-    // },
-    // {
-    //     question: "4. Bootstrap is an example of an:",
-    //     answers: {
-    //       a: "IEI",
-    //       b: "OBI",
-    //       c: "URL",
-    //       d: "API"
-    //     },
-    //     correctAnswer: "d"
-    // },
-    // {
-    //     question: "5. DOM is an abbreviation for:",
-    //     answers: {
-    //       a: "Don't Open Mustard",
-    //       b: "Documents Optional, Man",
-    //       c: "Document Object Model",
-    //       d: "Dunk On Me"
-    //     },
-    //     correctAnswer: "c"
-    // }
+    {
+        question: "2. JS is ______ of a website's anthropromorphic analogy?",
+        answers: {
+          a: "The Butt",
+          b: "The Muscle",
+          c: "The Epidermis",
+          d: "The Medulla Oblongata"
+        },
+        correctAnswer: "b"
+    },
+    {
+        question: "3. The term boolean has two possible values called ____ & ____.",
+        answers: {
+          a: "True & false",
+          b: "Big & Small",
+          c: "Gif & Gif",
+          d: "Butt & Other Butt"
+        },
+        correctAnswer: "a"
+    },
+    {
+        question: "4. Bootstrap is an example of an:",
+        answers: {
+          a: "IEI",
+          b: "OBI",
+          c: "URL",
+          d: "API"
+        },
+        correctAnswer: "d"
+    },
+    {
+        question: "5. DOM is an abbreviation for:",
+        answers: {
+          a: "Don't Open Mustard",
+          b: "Documents Optional, Man",
+          c: "Document Object Model",
+          d: "Dunk On Me"
+        },
+        correctAnswer: "c"
+    }
 ]
 
 // Timer function to subract 1 from time of 120 and display in #text element
@@ -175,8 +175,8 @@ $("#end").submit(function(){
     scoreList.push(score);
     $("#showScores").show(); 
     highScores.text(nameList + ": " + scoreList);
-    localStorage.setItem("Score List" , JSON.stringify(scoreList));
-    localStorage.setItem("Name List" , JSON.stringify(nameList));
+    localStorage.setItem("Name List" , [JSON.stringify(nameValue.value.trim())]);
+    localStorage.setItem("Score List" , JSON.stringify(score));
     console.log(nameList);
     console.log(scoreList);
     // renderScores();
