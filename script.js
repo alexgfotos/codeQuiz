@@ -5,9 +5,11 @@ var quiz= $("#quiz")
 var time = 120;
 var currentQuestion =0;
 var score =0;
-var allScores = [];
 var nameValue = document.querySelector("#nameValue");
 var highScores = $("#scoreList");
+var interval;
+
+
 
 
 // Creat an array of objects for question bank
@@ -23,46 +25,46 @@ var questions = [
         },
         correctAnswer: "c"
       },
-    {
-        question: "2. JS is ______ of a website's anthropromorphic analogy?",
-        answers: {
-          a: "The Butt",
-          b: "The Muscle",
-          c: "The Epidermis",
-          d: "The Medulla Oblongata"
-        },
-        correctAnswer: "b"
-    },
-    {
-        question: "3. The term boolean has two possible values called ____ & ____.",
-        answers: {
-          a: "True & false",
-          b: "Big & Small",
-          c: "Gif & Gif",
-          d: "Butt & Other Butt"
-        },
-        correctAnswer: "a"
-    },
-    {
-        question: "4. Bootstrap is an example of an:",
-        answers: {
-          a: "IEI",
-          b: "OBI",
-          c: "URL",
-          d: "API"
-        },
-        correctAnswer: "d"
-    },
-    {
-        question: "5. DOM is an abbreviation for:",
-        answers: {
-          a: "Don't Open Mustard",
-          b: "Documents Optional, Man",
-          c: "Document Object Model",
-          d: "Dunk On Me"
-        },
-        correctAnswer: "c"
-    }
+    // {
+    //     question: "2. JS is ______ of a website's anthropromorphic analogy?",
+    //     answers: {
+    //       a: "The Butt",
+    //       b: "The Muscle",
+    //       c: "The Epidermis",
+    //       d: "The Medulla Oblongata"
+    //     },
+    //     correctAnswer: "b"
+    // },
+    // {
+    //     question: "3. The term boolean has two possible values called ____ & ____.",
+    //     answers: {
+    //       a: "True & false",
+    //       b: "Big & Small",
+    //       c: "Gif & Gif",
+    //       d: "Butt & Other Butt"
+    //     },
+    //     correctAnswer: "a"
+    // },
+    // {
+    //     question: "4. Bootstrap is an example of an:",
+    //     answers: {
+    //       a: "IEI",
+    //       b: "OBI",
+    //       c: "URL",
+    //       d: "API"
+    //     },
+    //     correctAnswer: "d"
+    // },
+    // {
+    //     question: "5. DOM is an abbreviation for:",
+    //     answers: {
+    //       a: "Don't Open Mustard",
+    //       b: "Documents Optional, Man",
+    //       c: "Document Object Model",
+    //       d: "Dunk On Me"
+    //     },
+    //     correctAnswer: "c"
+    // }
 ]
 
 // Timer function to subract 1 from time of 120 and display in #text element
@@ -106,7 +108,7 @@ $("#ready").click(function () {
     $("#time").show();
     currentQuestion = 0;
     display();
-    // setInterval(timer, 1000);
+    interval = setInterval(timer, 1000);
     })
     timer();
 
@@ -115,7 +117,6 @@ $("#notReady").click(function () {
 })
 
 $(".answer").click(function(){
-// IS ANSWER CORRECT
 
     var answer = $(this).attr("data-answer");
     console.log(answer)
@@ -149,13 +150,13 @@ function endQuiz(){
     $("#score").text("You scored " + score + "/25");
     $("#end").show();
     $("#time").hide();
-    time = 100000;
-    // stupid time set because I cannot get clearInterval() to work
+    clearInterval(interval);
 
 }
 
 function saveName() {
-    localStorage.setItem("Score List" , JSON.stringify(allScores))
+    localStorage.setItem("Score List" , JSON.stringify(scoreList));
+    localStorage.setItem("Name List" , JSON.stringify(nameList));
 }
 
 function renderScores(){
@@ -168,12 +169,17 @@ function renderScores(){
 $("#end").submit(function(){
     event.preventDefault();
     $("#end").hide();
-    var scoreName = {"name": nameValue.value.trim(), "points": score};
-    allScores.push(scoreName);
-    saveName();
+    var scoreList = [];
+    var nameList = [];
+    nameList.push(nameValue.value.trim());
+    scoreList.push(score);
     $("#showScores").show(); 
-    console.log(allScores);
-    renderScores();
+    highScores.text(nameList + ": " + scoreList);
+    localStorage.setItem("Score List" , JSON.stringify(scoreList));
+    localStorage.setItem("Name List" , JSON.stringify(nameList));
+    console.log(nameList);
+    console.log(scoreList);
+    // renderScores();
 })
 
 
@@ -181,8 +187,7 @@ $("#highScores").click(function(){
     init();
     $("#readySplash").hide();
     $("#showScores").show();
-    renderScores();
-    // clearInterval(timer);
+    clearInterval(interval);
 })
 
 $("#back").click(function(){
